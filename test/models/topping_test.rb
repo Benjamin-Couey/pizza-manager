@@ -1,7 +1,9 @@
 require "test_helper"
 
 class ToppingTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+	test "should not allow duplicate toppings" do
+		dupTopping = Topping.new(name: toppings(:one).name)
+		assert_not dupTopping.valid?
+	end
 end
