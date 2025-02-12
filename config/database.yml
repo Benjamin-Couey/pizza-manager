@@ -15,6 +15,10 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  host: localhost
+  database: pizza_manager_development
+  username: <%= ENV["DEV_DB_USERNAME"] %>
+  password: <%= ENV["DEV_DB_PASSWORD"] %>
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -81,5 +85,5 @@ test:
 production:
   <<: *default
   database: pizza_manager_production
-  username: pizza_manager
-  password: <%= ENV["PIZZA_MANAGER_DATABASE_PASSWORD"] %>
+  username: <%= ENV["PROD_DB_USERNAME"] %>
+  password: <%= ENV["PROD_DB_PASSWORD"] %>
