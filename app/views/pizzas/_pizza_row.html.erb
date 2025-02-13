@@ -1,11 +1,17 @@
 <tr>
 	<td><%= pizza_row.name %></td>
-	<td>TODO</td>
-	<td>TODO</td>
-	<td>TODO</td>
+	<td><%= pizza_row.vegetarian %></td>
+	<td><%= pizza_row.price %></td>
+	<td><%= pizza_row.calories %></td>
 	<td>
 		<%= link_to "Edit", edit_pizza_path(pizza_row.id) %>
 		<%= button_to "Delete", pizza_row, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
 	</td>
 </tr>
 <%= render partial: "toppings/topping_row", collection: pizza_row.toppings %>
+<tr>
+	<td/>
+	<td><%= pizza_row.is_vegetarian() %></td>
+	<td><%= pizza_row.numeric_total("price") %></td>
+	<td><%= pizza_row.numeric_total("calories") %></td>
+</tr>

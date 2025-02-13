@@ -22,4 +22,18 @@ class PizzaTest < ActiveSupport::TestCase
 		assert pizzas(:one).valid?
 	end
 
+	test "pizza is vegetarian only if it and all its toppings are vegetarian" do
+		assert_not pizzas(:one).is_vegetarian()
+		assert pizzas(:three).is_vegetarian()
+		pizzas(:three).toppings << toppings(:one)
+		assert_not pizzas(:three).is_vegetarian()
+	end
+
+	test "numeric_total returns sum of numeric attribute for pizza and all its toppings and nil for non numeric attributes" do
+		assert_equal 4.5, pizzas(:one).numeric_total("price")
+		assert_equal 3, pizzas(:one).numeric_total("calories")
+		assert_nil pizzas(:one).numeric_total("name")
+		assert_nil pizzas(:one).numeric_total("notafield")
+	end
+
 end
