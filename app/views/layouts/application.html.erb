@@ -17,6 +17,9 @@
   </head>
 
   <body>
+    <% flash.each do |key, message| %>
+      <div><%= message %></div>
+    <% end %>
     <% if @current_user %>
       <div>Using user <%= @current_user.name %></div>
     <% end %>

@@ -5,6 +5,7 @@ class DashboardController < ApplicationController
 
   def select
     session[:user_id] = selected_user_params
+    flash[:notice] = "Now 'logged in' as the user #{User.find(session[:user_id]).name}"
     redirect_to :root
   end
 

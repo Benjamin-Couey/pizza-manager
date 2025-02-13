@@ -14,8 +14,10 @@ class PizzasController < ApplicationController
   def create
     @pizza = Pizza.new(pizza_params)
     if @pizza.save
+      flash[:notice] = "Sucessfully created pizza #{@pizza.name}"
       redirect_to pizzas_path
     else
+      flash[:error] = "There was an issue creating the pizza: #{@pizza.errors.full_messages}"
       @toppings = Topping.all
       render :new, status: :unprocessable_entity
     end
@@ -29,8 +31,10 @@ class PizzasController < ApplicationController
   def update
     @pizza = Pizza.find(params[:id])
     if @pizza.update(pizza_params)
+      flash[:notice] = "Sucessfully updated pizza #{@pizza.name}"
       redirect_to pizzas_path
     else
+      flash[:error] = "There was an issue updating the pizza: #{@pizza.errors.full_messages}"
       @toppings = Topping.all
       render :edit, status: :unprocessable_entity
     end
@@ -39,6 +43,7 @@ class PizzasController < ApplicationController
   def destroy
     @pizza = Pizza.find(params[:id])
     @pizza.destroy()
+    flash[:notice] = "Pizza deleted"
     redirect_to pizzas_path
   end
 
