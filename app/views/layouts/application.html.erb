@@ -17,6 +17,9 @@
   </head>
 
   <body>
+    <% if @current_user %>
+      <div>Using user <%= @current_user.name %></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
