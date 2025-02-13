@@ -1,7 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 owner:
-  name: Store Owner
+  name: <%= Role::STORE_OWNER %>
 
 chef:
-  name: Chef
+  name: <%= Role::CHEF %>
