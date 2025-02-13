@@ -1,22 +1,22 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: FirstPizza
-  toppings: one, two
+special:
+  name: No Cheese Special
+  toppings: sausage, mushroom
   vegetarian: true
   price: 1.5
-  calories: 1
+  calories: 10
 
-two:
-  name: SecondPizza
-  toppings: one
+sausage_pie:
+  name: Sausage Pie
+  toppings: sausage
   vegetarian: false
   price: 1.5
-  calories: 1
+  calories: 10
 
-three:
-  name: ThirdPizza
-  toppings: two
+veg_mushroom:
+  name: Vegetarian Mushroom
+  toppings: mushroom
   vegetarian: true
   price: 1.5
-  calories: 1
+  calories: 10

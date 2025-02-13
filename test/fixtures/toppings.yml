@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: FirstTopping
+sausage:
+  name: Sausage
   vegetarian: false
   price: 1.5
-  calories: 1
+  calories: 10
 
-two:
-  name: SecondTopping
+mushroom:
+  name: Mushroom
   vegetarian: true
   price: 1.5
-  calories: 1
+  calories: 10
