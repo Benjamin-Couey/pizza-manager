@@ -1,0 +1,15 @@
+<%= form_with model: @pizza do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+	<div>
+    <%= form.label :toppings %>
+    <%= form.collection_check_boxes :topping_ids, @toppings, :id, :name %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

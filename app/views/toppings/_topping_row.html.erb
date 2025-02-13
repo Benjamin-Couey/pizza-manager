@@ -1,0 +1,10 @@
+<tr>
+	<td><%= topping_row.name %></td>
+	<td><%= topping_row.vegetarian %></td>
+	<td><%= topping_row.price %></td>
+	<td><%= topping_row.calories %></td>
+	<td>
+		<%= link_to "Edit", edit_topping_path(topping_row.id) %>
+		<%= button_to "Delete", topping_row, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+	</td>
+</tr>

@@ -1,0 +1,16 @@
+<h1>Toppings</h1>
+<%= link_to "New topping", new_topping_path %>
+<table>
+	<thead>
+	  <tr>
+	    <th>Name</th>
+	    <th>Vegetarian</th>
+	    <th>Price</th>
+	    <th>Calories</th>
+			<th>Actions</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <%= render partial: "topping_row", collection: @toppings %>
+	</tbody>
+</table>

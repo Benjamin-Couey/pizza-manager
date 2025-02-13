@@ -1,0 +1,25 @@
+<%= form_with model: @topping do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+	<div>
+    <%= form.label :vegetarian %>
+    <%= form.check_box :vegetarian %>
+  </div>
+
+	<div>
+    <%= form.label :price %>
+    <%= form.number_field :price, in: 0..20.0, step: 0.5 %>
+  </div>
+
+	<div>
+    <%= form.label :calories %>
+    <%= form.number_field :calories, in: 0..1000, step: 10 %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

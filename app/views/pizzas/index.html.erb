@@ -1,0 +1,16 @@
+<h1>Pizzas</h1>
+<%= link_to "New pizza", new_pizza_path %>
+<table>
+	<thead>
+	  <tr>
+	    <th>Name</th>
+	    <th>Vegetarian</th>
+	    <th>Price</th>
+	    <th>Calories</th>
+			<th>Actions</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <%= render partial: "pizza_row", collection: @pizzas %>
+	</tbody>
+</table>

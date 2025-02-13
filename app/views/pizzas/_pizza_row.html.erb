@@ -1,0 +1,11 @@
+<tr>
+	<td><%= pizza_row.name %></td>
+	<td>TODO</td>
+	<td>TODO</td>
+	<td>TODO</td>
+	<td>
+		<%= link_to "Edit", edit_pizza_path(pizza_row.id) %>
+		<%= button_to "Delete", pizza_row, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+	</td>
+</tr>
+<%= render partial: "toppings/topping_row", collection: pizza_row.toppings %>
