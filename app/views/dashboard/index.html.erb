@@ -1,5 +1,14 @@
 <h1>Test Dashboard</h1>
-Select a user to test the application.
+<% if @current_user %>
+	<% if @current_user.has_role(Role::STORE_OWNER) %>
+		<%= link_to "Manage toppings", toppings_path %>
+	<% end %>
+	<% if @current_user.has_role(Role::CHEF) %>
+		<%= link_to "Manage pizzas", pizzas_path %>
+	<% end %>
+<% else %>
+	Select a user to test the application
+<% end %>
 <table>
 	<thead>
 	  <tr>
