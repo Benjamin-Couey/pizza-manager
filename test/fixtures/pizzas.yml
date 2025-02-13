@@ -3,7 +3,20 @@
 one:
   name: FirstPizza
   toppings: one, two
+  vegetarian: true
+  price: 1.5
+  calories: 1
 
 two:
   name: SecondPizza
   toppings: one
+  vegetarian: false
+  price: 1.5
+  calories: 1
+
+three:
+  name: ThirdPizza
+  toppings: two
+  vegetarian: true
+  price: 1.5
+  calories: 1
