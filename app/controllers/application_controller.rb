@@ -12,13 +12,17 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_store_owner
-    flash[:error] = "Only store owners may access that page"
-    redirect_to :root unless user_from_session()&.has_role(Role::STORE_OWNER)
+    if not user_from_session()&.has_role(Role::STORE_OWNER)
+      flash[:error] = "Only store owners may access that page"
+      redirect_to :root
+    end
   end
 
   def authorize_chef
-    flash[:error] = "Only chefs may access that page"
-    redirect_to :root unless user_from_session()&.has_role(Role::CHEF)
+    if not user_from_session()&.has_role(Role::CHEF)
+      flash[:error] = "Only chefs may access that page"
+      redirect_to :root
+    end
   end
 
 end
