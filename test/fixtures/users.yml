@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+owner:
+  name: OwnerTestUser
+  roles: owner
+
+chef:
+  name: ChefTestUser
+  roles: chef
+
+ownerchef:
+  name: OwnerAndChefTestUser
+  roles: owner, chef
