@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
+  root "dashboard#index"
+  post "/", to: "dashboard#select"
   resources :pizzas, :toppings, except: [:show]
 
 end

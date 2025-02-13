@@ -1,0 +1,14 @@
+<h1>Test Dashboard</h1>
+Select a user to test the application.
+<table>
+	<thead>
+	  <tr>
+	    <th>Name</th>
+	    <th>Store Owner</th>
+	    <th>Chef</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <%= render partial: "user_row", collection: @users %>
+	</tbody>
+</table>

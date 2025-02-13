@@ -1,0 +1,8 @@
+<tr>
+	<td><%= user_row.name %></td>
+	<td><%= user_row.has_role(Role::STORE_OWNER) %></td>
+	<td><%= user_row.has_role(Role::CHEF) %></td>
+	<td>
+		<%= button_to "Select", root_path(user_row), method: :post, params: {user_id: user_row} %>
+	</td>
+</tr>
