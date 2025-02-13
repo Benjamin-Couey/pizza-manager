@@ -17,4 +17,9 @@ class PizzaTest < ActiveSupport::TestCase
 		assert allToppingOnePizza.valid?
 	end
 
+	test "should not prevent updating pizza while keeping same toppings" do
+		pizzas(:one).name = "newName"
+		assert pizzas(:one).valid?
+	end
+
 end

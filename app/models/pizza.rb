@@ -6,7 +6,7 @@ class Pizza < ApplicationRecord
 	validate :unique_toppings_combination
 
 	def unique_toppings_combination
-		Pizza.all().each do |pizza|
+		Pizza.where.not(id: id).each do |pizza|
 			if pizza.toppings.sort == toppings.sort
 				errors.add(:toppings, 'this combination of toppings is already used')
 			end
