@@ -10,7 +10,7 @@
 </tr>
 <%= render partial: "toppings/topping_row", collection: pizza_row.toppings %>
 <tr>
-	<td/>
+	<td class="emtpy-cell"/>
 	<td><%= pizza_row.is_vegetarian() %></td>
 	<td><%= pizza_row.numeric_total("price") %></td>
 	<td><%= pizza_row.numeric_total("calories") %></td>

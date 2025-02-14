@@ -3,10 +3,10 @@
 	<td><%= topping_row.vegetarian %></td>
 	<td><%= topping_row.price %></td>
 	<td><%= topping_row.calories %></td>
-	<td>
-		<% if @current_user.has_role(Role::STORE_OWNER) %>
+	<% if @current_user.has_role(Role::STORE_OWNER) %>
+		<td>
 			<%= link_to "Edit", edit_topping_path(topping_row.id), class: "button" %>
 			<%= button_to "Delete", topping_row, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
-		<% end %>
-	</td>
+		</td>
+	<% end %>
 </tr>

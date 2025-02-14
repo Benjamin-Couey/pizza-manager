@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+.emtpy-cell {
+	background-color: var(--bg);
+	border: none;
+}
