@@ -18,12 +18,12 @@ class PizzasIntegrationTest < ActionDispatch::IntegrationTest
 		assert_select "tbody tr", total_rows
 		assert_select "tbody tr td", pizzas(:special).name
 		assert_select "tbody tr td a[href=?]", edit_pizza_path(pizzas(:special).id)
-		assert_select "tbody tr td a[href=?]", edit_topping_path(toppings(:sausage).id)
-		assert_select "tbody tr td a[href=?]", edit_topping_path(toppings(:mushroom).id)
 		assert_select "tbody tr td form[action=?]", pizza_path(pizzas(:special).id) do
 			assert_select "button", "Delete"
 		end
 		assert_select "tbody tr td form[action=?]", topping_path(toppings(:sausage).id), 0
+		assert_select "tbody tr td a[href=?]", edit_topping_path(toppings(:sausage).id), 0
+		assert_select "tbody tr td a[href=?]", edit_topping_path(toppings(:mushroom).id), 0
 		assert_select "tbody tr td", pizzas(:sausage_pie).name
 		assert_select "tbody tr td", pizzas(:veg_mushroom).name
 	end
