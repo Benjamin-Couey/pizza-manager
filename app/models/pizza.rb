@@ -23,6 +23,7 @@ class Pizza < ApplicationRecord
 
   def unique_toppings_combination
     # TODO: Find more performant implementation
+    # TODO: Update to also make sure pizzas have same vegetarian, calories, price
     Pizza.where.not(id: id).each do |pizza|
       if pizza.toppings.sort == toppings.sort
         errors.add(:toppings, "are a combination already in use by the pizza #{pizza.name}")
