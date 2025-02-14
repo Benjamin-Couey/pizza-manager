@@ -38,11 +38,11 @@ class PizzasIntegrationTest < ActionDispatch::IntegrationTest
 
     assert_select "tbody tr td", false, toppings(:green_peppers).name
 
-    post pizzas_path, params: { pizza: { name: "New pizza", vegetarian: true, price: 10.5, calories: 100, topping_ids: [ toppings(:green_peppers).id ] } }
+    post pizzas_path, params: { pizza: { name: "New pizza", vegetarian: true, price: 13, calories: 100, topping_ids: [ toppings(:green_peppers).id ] } }
     assert_redirected_to pizzas_path
     follow_redirect!
     assert_select "tbody tr td", "New pizza"
-    assert_select "tbody tr td", "10.5"
+    assert_select "tbody tr td", "13"
     assert_select "tbody tr td", "100"
     assert_select "tbody tr td", toppings(:green_peppers).name
 
@@ -64,11 +64,11 @@ class PizzasIntegrationTest < ActionDispatch::IntegrationTest
     assert_one_pizzas_form_present(pizzas(:special))
     assert_select "form input[value=?]", "Update Pizza"
 
-    patch pizza_path(pizzas(:special).id), params: { pizza: { name: "The Extra Special", vegetarian: true, price: 10.5, calories: 100, topping_ids: [ toppings(:green_peppers).id ] } }
+    patch pizza_path(pizzas(:special).id), params: { pizza: { name: "The Extra Special", vegetarian: true, price: 13, calories: 100, topping_ids: [ toppings(:green_peppers).id ] } }
     assert_redirected_to pizzas_path
     follow_redirect!
     assert_select "tbody tr td", "The Extra Special"
-    assert_select "tbody tr td", "10.5"
+    assert_select "tbody tr td", "13"
     assert_select "tbody tr td", "100"
     assert_select "tbody tr td", toppings(:green_peppers).name
     assert_select "tbody tr td", { count: 0, text: pizzas(:special).name }

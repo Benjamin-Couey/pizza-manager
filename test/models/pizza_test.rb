@@ -29,7 +29,7 @@ class PizzaTest < ActiveSupport::TestCase
   end
 
   test "numeric_total returns sum of numeric attribute for pizza and all its toppings and nil for non numeric attributes" do
-    assert_equal 4.5, pizzas(:special).numeric_total("price")
+    assert_equal 15, pizzas(:special).numeric_total("price")
     assert_equal 30, pizzas(:special).numeric_total("calories")
     assert_nil pizzas(:special).numeric_total("name")
     assert_nil pizzas(:special).numeric_total("notafield")

@@ -27,14 +27,14 @@ class ToppingsIntegrationTest < ActionDispatch::IntegrationTest
     assert_one_toppings_form_present
     assert_select "form input[value=?]", "Create Topping"
 
-    post toppings_path, params: { topping: { name: "New topping", vegetarian: false, price: 10.5, calories: 100 } }
+    post toppings_path, params: { topping: { name: "New topping", vegetarian: false, price: 13, calories: 100 } }
     assert_redirected_to toppings_path
     follow_redirect!
     assert_select "tbody tr td", "New topping"
-    assert_select "tbody tr td", "10.5"
+    assert_select "tbody tr td", "13"
     assert_select "tbody tr td", "100"
 
-    post toppings_path, params: { topping: { name: toppings(:sausage).name, vegetarian: false, price: 10.5, calories: 100 } }
+    post toppings_path, params: { topping: { name: toppings(:sausage).name, vegetarian: false, price: 13, calories: 100 } }
     assert_response :unprocessable_entity
     assert_select "div", "There was an issue creating the topping: [\"Name has already been taken\"]"
   end
@@ -48,16 +48,16 @@ class ToppingsIntegrationTest < ActionDispatch::IntegrationTest
     assert_one_toppings_form_present(toppings(:sausage))
     assert_select "form input[value=?]", "Update Topping"
 
-    patch topping_path(toppings(:sausage).id), params: { topping: { name: "Italian Sausage", price: 10.5, calories: 100 } }
+    patch topping_path(toppings(:sausage).id), params: { topping: { name: "Italian Sausage", price: 13, calories: 100 } }
     assert_redirected_to toppings_path
     follow_redirect!
     assert_select "tbody tr td", "Italian Sausage"
-    assert_select "tbody tr td", "10.5"
+    assert_select "tbody tr td", "13"
     assert_select "tbody tr td", "100"
     assert_select "tbody tr td", { count: 0, text: toppings(:sausage).name }
 
 
-    patch topping_path(toppings(:sausage).id), params: { topping: { name: toppings(:mushroom).name, price: 10.5, calories: 100 } }
+    patch topping_path(toppings(:sausage).id), params: { topping: { name: toppings(:mushroom).name, price: 13, calories: 100 } }
     assert_response :unprocessable_entity
     assert_select "div", "There was an issue updating the topping: [\"Name has already been taken\"]"
   end

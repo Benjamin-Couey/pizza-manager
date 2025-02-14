@@ -4,19 +4,19 @@ special:
   name: No Cheese Special
   toppings: sausage, mushroom
   vegetarian: true
-  price: 1.5
+  price: 5
   calories: 10
 
 sausage_pie:
   name: Sausage Pie
   toppings: sausage
   vegetarian: false
-  price: 1.5
+  price: 5
   calories: 10
 
 veg_mushroom:
   name: Vegetarian Mushroom
   toppings: mushroom
   vegetarian: true
-  price: 1.5
+  price: 5
   calories: 10

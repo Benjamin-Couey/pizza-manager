@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_02_13_145903) do
+ActiveRecord::Schema[7.2].define(version: 2025_02_14_183957) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_13_145903) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "vegetarian"
-    t.float "price"
+    t.integer "price"
     t.integer "calories"
     t.index ["name"], name: "index_pizzas_on_name", unique: true
   end
@@ -47,7 +47,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_13_145903) do
   create_table "toppings", force: :cascade do |t|
     t.string "name"
     t.boolean "vegetarian"
-    t.float "price"
+    t.integer "price"
     t.integer "calories"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
