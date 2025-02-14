@@ -13,12 +13,7 @@ class Pizza < ApplicationRecord
   end
 
   def is_vegetarian
-    toppings.each do |topping|
-      if !topping.vegetarian
-        return false
-      end
-    end
-    vegetarian
+    toppings.all?(&:vegetarian) && vegetarian
   end
 
   def numeric_total(attribute)
