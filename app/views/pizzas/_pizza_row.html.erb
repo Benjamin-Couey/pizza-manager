@@ -5,7 +5,8 @@
 	<td><%= pizza_row.calories %></td>
 	<td>
 		<%= link_to "Edit", edit_pizza_path(pizza_row.id), class: "button" %>
-		<%= button_to "Delete", pizza_row, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+		<!-- TODO: Add actual confirm to delete button -->
+		<%= button_to "Delete", pizza_row, method: :delete %>
 	</td>
 </tr>
 <%= render partial: "toppings/topping_row", collection: pizza_row.toppings %>
