@@ -8,7 +8,7 @@ class Pizza < ApplicationRecord
 	def unique_toppings_combination
 		Pizza.where.not(id: id).each do |pizza|
 			if pizza.toppings.sort == toppings.sort
-				errors.add(:toppings, 'this combination of toppings is already used')
+				errors.add(:toppings, "are a combination already in use by the pizza #{pizza.name}")
 			end
 		end
 	end
