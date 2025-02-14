@@ -1,5 +1,4 @@
 class ToppingsController < ApplicationController
-
   before_action :authorize_store_owner
 
   def index

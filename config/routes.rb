@@ -14,6 +14,5 @@ Rails.application.routes.draw do
 
   root "dashboard#index"
   post "/", to: "dashboard#select"
-  resources :pizzas, :toppings, except: [:show]
-
+  resources :pizzas, :toppings, except: [ :show ]
 end

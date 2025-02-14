@@ -1,5 +1,4 @@
 class PizzasController < ApplicationController
-
   before_action :authorize_chef
 
   def index
