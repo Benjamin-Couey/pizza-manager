@@ -11,3 +11,9 @@ mushroom:
   vegetarian: true
   price: 1.5
   calories: 10
+
+green_peppers:
+  name: Green Peppers
+  vegetarian: true
+  price: 1.5
+  calories: 10
