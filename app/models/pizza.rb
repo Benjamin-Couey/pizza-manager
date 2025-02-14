@@ -4,14 +4,6 @@ class Pizza < ApplicationRecord
   validates :name, uniqueness: { case_sensitive: false }
   validate :unique_toppings_combination
 
-  def unique_toppings_combination
-    Pizza.where.not(id: id).each do |pizza|
-      if pizza.toppings.sort == toppings.sort
-        errors.add(:toppings, "are a combination already in use by the pizza #{pizza.name}")
-      end
-    end
-  end
-
   def is_vegetarian
     toppings.all?(&:vegetarian) && vegetarian
   end
@@ -25,5 +17,16 @@ class Pizza < ApplicationRecord
       sum += topping[attribute]
     end
     sum
+  end
+
+  private
+
+  def unique_toppings_combination
+    # TODO: Find more performant implementation
+    Pizza.where.not(id: id).each do |pizza|
+      if pizza.toppings.sort == toppings.sort
+        errors.add(:toppings, "are a combination already in use by the pizza #{pizza.name}")
+      end
+    end
   end
 end
