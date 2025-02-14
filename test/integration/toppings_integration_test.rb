@@ -101,6 +101,7 @@ class ToppingsIntegrationTest < ActionDispatch::IntegrationTest
 			else
 				assert_select "input[type=number]"
 			end
+			assert_select "a[href=?]", toppings_path
 		end
 	end
 

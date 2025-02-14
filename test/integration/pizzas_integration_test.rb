@@ -142,6 +142,7 @@ class PizzasIntegrationTest < ActionDispatch::IntegrationTest
 			else
 				assert_select "input[type=checkbox][value=?]", toppings(:green_peppers).id
 			end
+			assert_select "a[href=?]", pizzas_path
 		end
 	end
 
