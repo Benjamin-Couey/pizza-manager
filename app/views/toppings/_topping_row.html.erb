@@ -5,7 +5,7 @@
 	<td><%= topping_row.calories %></td>
 	<td>
 		<% if @current_user.has_role(Role::STORE_OWNER) %>
-			<%= link_to "Edit", edit_topping_path(topping_row.id) %>
+			<%= link_to "Edit", edit_topping_path(topping_row.id), class: "button" %>
 			<%= button_to "Delete", topping_row, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
 		<% end %>
 	</td>

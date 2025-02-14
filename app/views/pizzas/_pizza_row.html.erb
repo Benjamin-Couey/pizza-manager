@@ -4,7 +4,7 @@
 	<td><%= pizza_row.price %></td>
 	<td><%= pizza_row.calories %></td>
 	<td>
-		<%= link_to "Edit", edit_pizza_path(pizza_row.id) %>
+		<%= link_to "Edit", edit_pizza_path(pizza_row.id), class: "button" %>
 		<%= button_to "Delete", pizza_row, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
 	</td>
 </tr>
