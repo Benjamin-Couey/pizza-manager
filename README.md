@@ -8,20 +8,24 @@ The following was done to set up a local Ubuntu environment to develop and run t
 
 - Install the version of Ruby specified in `.ruby-version`.
 	- Run `sudo apt-get update`
-	- Run `sudo apt install build-essential rustc libssl-dev libyaml-dev zlib1g-dev libgmp-dev`
-	- Install a Ruby version manager. I used RVM since that's what I'm familiar with. Run the following to install RVM:s
+	- Run `sudo apt install build-essential rustc libssl-dev libyaml-dev zlib1g-dev libgmp-dev` to install Ruby's dependencies.
+	- Install a Ruby version manager. I used RVM since that's what I'm familiar with. Run the following to install RVM:
 		- `sudo apt-get install software-properties-common`
-		-	`sudo apt-add-repository -y ppa:rael-gc/rvm`
-		-	`sudo apt-get update`
-		-	`sudo apt-get install rvm`
+		- `sudo apt-add-repository -y ppa:rael-gc/rvm`
+		- `sudo apt-get update`
+		- `sudo apt-get install rvm`
 		- `sudo usermod -a -G rvm $USER`
 	- `rvm install ruby-3.2.2`
 
 - Install and configure postgres
 	- Run `sudo apt update` and then `sudo apt install postgresql postgresql-contrib libpq-dev`
 	- Start the database with `sudo service postgresql restart`.
-	- Create a PSQL user for the app to use with `sudo -u postgres createuser -s pizza_admin -P`.
-	- Create a .env file in the application's main directory. Modify this file to include entries for `DEV_DB_USERNAME` and `DEV_DB_PASSWORD` that correspond to the username and password you provided for the PSQL user.
+	- Create a PSQL user for the app to use with `sudo -u postgres createuser -s  -P`.
+	- Create a .env file in the application's main directory. Modify this file to include entries for `DEV_DB_USERNAME` and `DEV_DB_PASSWORD` that correspond to the username and password you provided for the PSQL user. For example:
+   	```
+    	DEV_DB_USERNAME="pizza_admin"
+	DEV_DB_PASSWORD="pizza_p@ssw0rd"
+	```
 	- Log in as the new user with `psql -U pizza_admin` and run `SHOW hba_file;` to get the path to the `pg_hba.conf`.
 	- Navigate to the `pg_hba.conf` file. Make the following adjustments
 	```
@@ -51,7 +55,7 @@ The application's tests can be ran with
 
 ## Implementation choices
 
-For the most part, this is just a minimal Ruby on Rails application, though [simple.css](https://github.com/kevquirk/simple.css) was used to style the application. This was largely done for the sake of expediency. Were this is a longer term project, it would be more appropriate to choose a larger and more robust toolset.
+For the most part, this is just a minimal Ruby on Rails application, though [simple.css](https://github.com/kevquirk/simple.css) was used to style the application. This was largely done for the sake of expediency. Were this is a longer term project, it would be appropriate to choose a larger and more robust toolset for things like authentication, testing, reactive views, etc.
 
 ### Data model
 
