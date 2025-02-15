@@ -2,20 +2,49 @@
 
 A minimal pizza management web app, created for a software engineering exercise.
 
-## Building
+## Running locally
 
-TODO: Fill this out as I do the set up for deploying it
+The following was done to set up a local Ubuntu environment to develop and run the application.
 
-`rails db:fixtures:load`
+- Install the version of Ruby specified in `.ruby-version`.
+	- Run `sudo apt-get update`
+	- Run `sudo apt install build-essential rustc libssl-dev libyaml-dev zlib1g-dev libgmp-dev`
+	- Install a Ruby version manager. I used RVM since that's what I'm familiar with. Run the following to install RVM:s
+		- `sudo apt-get install software-properties-common`
+		-	`sudo apt-add-repository -y ppa:rael-gc/rvm`
+		-	`sudo apt-get update`
+		-	`sudo apt-get install rvm`
+		- `sudo usermod -a -G rvm $USER`
+	- `rvm install ruby-3.2.2`
 
-## Running
+- Install and configure postgres
+	- Run `sudo apt update` and then `sudo apt install postgresql postgresql-contrib libpq-dev`
+	- Start the database with `sudo service postgresql restart`.
+	- Create a PSQL user for the app to use with `sudo -u postgres createuser -s pizza_admin -P`.
+	- Create a .env file in the application's main directory. Modify this file to include entries for `DEV_DB_USERNAME` and `DEV_DB_PASSWORD` that correspond to the username and password you provided for the PSQL user.
+	- Log in as the new user with `psql -U pizza_admin` and run `SHOW hba_file;` to get the path to the `pg_hba.conf`.
+	- Navigate to the `pg_hba.conf` file. Replace the line
+	`local   all             all                                     peer`
+	with
+	`local   all             all                                     md5`
+	Also replace the line
+	`local   replication     all                                     peer`
+	with
+	`local   replication     all                                     md5`
+- Clone the application and switch it's directory.
 
-The application can be run locally with
+- Install gems
+	- Run `gem install bundler`
+	- Run `bundle install`
+
+- Load the app's data into the database
+	- Run `rake db:migrate`
+	- Run `rails db:fixtures:load` to populate the database,
+
+The application can then be ran locally with
 `rails server`
 
-## Testing
-
-The application's tests can be run with
+The application's tests can be ran with
 `rails test`
 
 ## Implementation choices
