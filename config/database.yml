@@ -83,10 +83,7 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  adapter: postgresql
-  encoding: unicode
-  database: <%= ENV['RDS_DB_NAME'] %>
-  username: <%= ENV['RDS_USERNAME'] %>
-  password: <%= ENV['RDS_PASSWORD'] %>
-  host: <%= ENV['RDS_HOSTNAME'] %>
-  port: <%= ENV['RDS_PORT'] %>
+  <<: *default
+  database: pizza_manager_production
+  username: <%= ENV["PROD_DB_USERNAME"] %>
+  password: <%= ENV["PROD_DB_PASSWORD"] %>
