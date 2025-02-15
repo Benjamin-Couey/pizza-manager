@@ -23,14 +23,16 @@ The following was done to set up a local Ubuntu environment to develop and run t
 	- Create a PSQL user for the app to use with `sudo -u postgres createuser -s pizza_admin -P`.
 	- Create a .env file in the application's main directory. Modify this file to include entries for `DEV_DB_USERNAME` and `DEV_DB_PASSWORD` that correspond to the username and password you provided for the PSQL user.
 	- Log in as the new user with `psql -U pizza_admin` and run `SHOW hba_file;` to get the path to the `pg_hba.conf`.
-	- Navigate to the `pg_hba.conf` file. Replace the line
-	`local   all             all                                     peer`
-	with
-	`local   all             all                                     md5`
-	Also replace the line
-	`local   replication     all                                     peer`
-	with
-	`local   replication     all                                     md5`
+	- Navigate to the `pg_hba.conf` file. Make the following adjustments
+	```
+ 	local   all             all                                     peer
+ 	// Replace the above line with:
+	local   all             all                                     md5
+
+	local   replication     all                                     peer
+	// Replace the above line with:
+	local   replication     all                                     md5
+ 	```
 - Clone the application and switch it's directory.
 
 - Install gems
