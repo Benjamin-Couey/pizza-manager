@@ -1,0 +1,22 @@
+databases:
+  - name: pizza
+    databaseName: pizza
+    user: pizza
+    plan: free
+
+services:
+  - type: web
+    name: pizza
+    runtime: ruby
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "RAILS_ENV=production bundle exec rails server"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: pizza
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: WEB_CONCURRENCY
+        value: 2 # sensible default
